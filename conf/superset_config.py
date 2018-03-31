@@ -7,7 +7,7 @@ from flask_appbuilder.security.manager import AUTH_REMOTE_USER
 from security.security_models import MySecurityManager
 
 # using customize MY security manager
-CUSTOM_SECURITY_MANAGER = IAMSecurityManager
+CUSTOM_SECURITY_MANAGER = MySecurityManager
 
 # AUTHENTICATION CONFIG
 AUTH_TYPE = AUTH_REMOTE_USER
