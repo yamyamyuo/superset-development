@@ -1,2 +1,2 @@
 # superset-development
-some additional development on top of superset
+- remote server login development on top of superset
