@@ -7,14 +7,13 @@ from __future__ import unicode_literals
 import logging
 
 from flask_appbuilder.const import LOGMSG_WAR_SEC_LOGIN_FAILED
-from flask_appbuilder.security.sqla.manager import SecurityManager
-
+from superset.security import SupersetSecurityManager
 from security.security_views import MyAuthRemoteUserView
 
 logger = logging.getLogger(__name__)
 
 
-class MySecurityManager(SecurityManager):
+class MySecurityManager(SupersetSecurityManager):
     logger.info("using customize my security manager")
     authremoteuserview = MyAuthRemoteUserView
 

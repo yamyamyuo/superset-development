@@ -3,8 +3,12 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from flask_appbuilder.security.manager import AUTH_REMOTE_USER
-from security.security_models import MySecurityManager
+try:
+	# you'd better put all the import stuff here, since superset will ignore it 
+	from flask_appbuilder.security.manager import AUTH_REMOTE_USER
+	from security.security_models import MySecurityManager
+except Exception as ex:
+	raise Exception(ex)
 
 # using customize MY security manager
 CUSTOM_SECURITY_MANAGER = MySecurityManager

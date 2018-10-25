@@ -1,10 +1,10 @@
 <!-- extend base layout -->
 {% extends "appbuilder/base.html" %}
 
-<!-- the following code reference from: -->
-<!-- https://github.com/dpgaspar/Flask-AppBuilder/blob/master/flask_appbuilder/templates/appbuilder/general/security/login_db.html -->
 
 {% block content %}
+<input type="hidden" name="csrf_token" id="csrf_token" value="{{ csrf_token() if csrf_token else '' }}">
+
 <div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-primary" >
@@ -15,7 +15,7 @@
 
                 <form class="form" action="" method="post" name="login">
                     {{form.hidden_tag()}}
-                    <div class="help-block">{{_("Enter your MY login and password below")}}:</div>
+                    <div class="help-block">{{_("请使用 邮箱密码 登录")}}:</div>
                     <div class="control-group{% if form.errors.openid %} error{% endif %}">
                         <label class="control-label" for="openid">{{_("Email")}}:</label>
 
@@ -39,6 +39,18 @@
                         </div>
                     </div>
 
+                    <div class="control-group">
+                        <div class="controls">
+                            <br>
+                            <div>
+                                <input class="btn btn-primary btn-block" type="submit" value="{{_('Sign In')}}">
+                                <a href="https://yourserver.com/sign_up?_src=superset" class="btn btn-block btn-primary" data-toggle="tooltip" rel="tooltip"
+                                title="{{_('If you are not already a user, please register')}}">
+                                    {{_('Register')}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </form>
 
             </div>
